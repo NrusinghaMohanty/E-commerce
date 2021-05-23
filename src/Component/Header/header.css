@@ -1,0 +1,37 @@
+.header-containter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: auto;
+  padding:8rem 1rem;
+}
+.header-column {
+  flex-basis: 50%;
+  min-width: 300px;
+}
+.header-column img {
+  width: 100%;
+  height: auto;
+}
+.header-column h1 {
+  font-size: 3rem;
+  margin: 2rem 0;
+  color:#fff;
+}
+.header-column p {
+  color:#ddd;
+}
+.btn {
+  display: inline-block;
+  background: #93c5fd;
+  color: #222;
+  padding: 0.5rem 2.5rem;
+  margin: 2.5rem 0;
+  border-radius: 2.5rem;
+  transition: background 0.5s;
+}
+.btn:hover {
+  background: #563434;
+}

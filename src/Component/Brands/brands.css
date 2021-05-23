@@ -1,0 +1,25 @@
+.brands-container {
+    max-width: 900px;
+    margin: auto;
+    padding:0 2rem;
+}
+.row {
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.brands{
+    margin: 100px auto;
+}
+.brands-img {
+    width:160px;
+}
+.brands-img img {
+    width:100%;
+    cursor: pointer;
+    filter: grayscale(100%);
+}
+.brands-img img:hover {
+filter :grayscale(0)
+}

@@ -1,0 +1,61 @@
+.footer{
+    background: #000;
+    color: #fff;
+    /* position: fixed; */
+    /* bottom: 0;
+    left: 0;
+    right: 0; */
+}
+.footer-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.left {
+
+}
+.right{
+    
+}
+.social-media{
+    text-align: center;
+    padding:2rem 0rem;
+    font-size: 1.5rem;
+}
+.social-media i {
+    margin: 0rem 1rem;
+}
+.sing-up{
+    text-align: center;
+}
+.sing-up h3 {
+    margin-bottom: 2rem;
+    color: #ddd;
+}
+.sing-up input{
+    border: none;
+    outline: none;
+    background: #000;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.2rem 1rem;
+    margin-right: 2rem;
+}
+.sing-up button {
+    outline: none;
+    border: none;
+    background: none;
+    padding: 0.4rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    color: #222;
+    background: #ddd;
+    font-weight: bolder;
+}
+.copy-right{
+    text-align: center;
+    padding:1rem 0;
+    background: inherit;
+    color: #555;
+}

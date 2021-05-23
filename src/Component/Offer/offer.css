@@ -1,0 +1,26 @@
+.offer {
+    background: radial-gradient(#fff,#ffd6d6);
+    margin-top: 80px;
+    padding:30px 0;
+}
+.feature-containerr{
+    max-width:900px;
+    margin: auto;
+    padding:0 2rem;
+}
+.row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.col-2{
+    flex-basis: 50%;
+    min-width: 300px;
+}
+.offer .feature-containerr .row .col-2{
+    padding: 0 3rem;
+}
+small {
+    color:#555;
+}
