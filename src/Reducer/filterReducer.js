@@ -1,4 +1,3 @@
-import React from "react"
 
 function filterReducer(state, action) {
     switch (action.type) {

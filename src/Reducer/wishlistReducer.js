@@ -1,4 +1,3 @@
-import React from "react"
 
 function wishlistHandler(state,action){
     switch(action.type){

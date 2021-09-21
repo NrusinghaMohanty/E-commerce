@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import  Navbar  from "../Component/Navbar/navbar";
 import Home from "../Homepage/homepage"
 import Product from "../Product/productPage"
 import Cart from "../Cart/cartPage" 
 import Wishlist from "../Wishlist/wishlistPage"
+import Footer from "../Component/Footer/footer";
 
 const Router = () => {
     return (
@@ -14,6 +14,7 @@ const Router = () => {
             <Route path="/product" element={<Product />} />
             <Route path="/cart" element={<Cart />}  />
             <Route path="/wishlist" element={<Wishlist />} /> 
+            <Route path="/footer" element={<Footer />} />
         </Routes>
     </div>
     );

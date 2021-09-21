@@ -1,4 +1,3 @@
-import React from 'react'
 
 function productHandler(state,action){
     switch(action.type){

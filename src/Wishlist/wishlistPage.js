@@ -27,7 +27,7 @@ const Wishlist = () => {
         console.error("error")
       }})
     ();
-    }, []);
+    }, [wishlistdispatch]);
 
       const removeFromwishlist = (id) => {
         (async () => {
@@ -37,7 +37,7 @@ const Wishlist = () => {
               return response.data;
             });
           if (success) {
-            wishlistdispatch({ type: "REMOVE_FROM_WISHLIST", payload: id });
+            wishlistdispatch({ type: "REMOVE_FROM_WISHLIST", payload: data._id });
           } else {
             console.log("error occured while removing item");
           }
@@ -48,10 +48,10 @@ const Wishlist = () => {
       function showWishlist (item) {
         return (
             <>
-            
+            {/* <div className="wishlistt"> */}
              <div className="wishlist-product">
-                <div className="wishlist-img">
-                 <img src={item.url} />
+                <div className="wishlistimg-container">
+                 <img src={item.url} alt="Error loading " className="wishlist-img" />
                  </div>
                  <div className="wishlist-text">
                  <p>{item.name}</p>
@@ -60,7 +60,7 @@ const Wishlist = () => {
                  </div>
              </div>
              
-
+             {/* </div> */}
             </>
         )
       }

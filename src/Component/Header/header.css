@@ -18,20 +18,29 @@
 .header-column h1 {
   font-size: 3rem;
   margin: 2rem 0;
-  color:#fff;
+  color:#000;
 }
 .header-column p {
-  color:#ddd;
+  color:#333;
 }
 .btn {
   display: inline-block;
-  background: #93c5fd;
-  color: #222;
+  background: #FFF5F5;
+  color: #fff;
   padding: 0.5rem 2.5rem;
   margin: 2.5rem 0;
   border-radius: 2.5rem;
   transition: background 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .btn:hover {
-  background: #563434;
+  background-color: #DD2476;
+  cursor: pointer;
+  
+}
+.explore-btn{
+  text-decoration: none;
+}
+.explore-btn:hover{
+  color: #fff;
 }

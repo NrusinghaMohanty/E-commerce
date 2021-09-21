@@ -28,7 +28,7 @@ const Cart = () => {
           console.error("error")
         }
       })();
-      }, []);
+      }, [cartdispatch]);
 
 
       const incrementQt = (item) => {
@@ -41,7 +41,7 @@ const Cart = () => {
               return response.data;
             });
           if (success) {
-            cartdispatch({ type: "INCREMENT", payload: item });
+            cartdispatch({ type: "INCREMENT", payload: data });
           } else {
             console.log("error");
           }
@@ -64,7 +64,7 @@ const Cart = () => {
                 return response.data;
               });
             if (success) {
-              cartdispatch({ type: "DECREMENT", payload: item });
+              cartdispatch({ type: "DECREMENT", payload: data });
             } else {
               console.log("error");
             }
@@ -76,7 +76,7 @@ const Cart = () => {
                   return response.data;
                 });
               if (success) {
-                cartdispatch({ type: "REMOVE_IN_CART", payload: item._id });
+                cartdispatch({ type: "REMOVE_IN_CART", payload: data._id });
               } else {
                 console.log("error occured while removing item");
               }
@@ -93,7 +93,7 @@ const Cart = () => {
               return response.data;
             });
           if (success) {
-            cartdispatch({ type: "REMOVE_IN_CART", payload: id });
+            cartdispatch({ type: "REMOVE_IN_CART", payload: data._id });
           } else {
             console.log("error occured while removing item");
           }
@@ -106,7 +106,7 @@ const Cart = () => {
                 <tr>
                   <td>
                     <div class="cart-info">
-                       <img src={item.url} />
+                       <img src={item.url} alt="Error loading " />
                        <div>
                            <p>{item.name}</p>
                            <small>{item.price}</small>

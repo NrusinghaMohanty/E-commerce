@@ -8,16 +8,16 @@ const Brands = () => {
                 <div className="brands-container">
                     <div className="row">
                         <div className="brands-img">
-                            <img src="https://res.cloudinary.com/djc1o48j7/image/upload/v1621635158/fashion%20images/pic1_mj8ldy.png" />
+                            <img src="https://res.cloudinary.com/djc1o48j7/image/upload/v1621635158/fashion%20images/pic1_mj8ldy.png" alt="Error loading" />
                         </div>
                             <div className="brands-img">
-                                <img src="https://res.cloudinary.com/djc1o48j7/image/upload/v1621635159/fashion%20images/pic2_pzkwod.png" />
+                                <img src="https://res.cloudinary.com/djc1o48j7/image/upload/v1621635159/fashion%20images/pic2_pzkwod.png" alt="Error loading" />
                         </div>
                             <div className="brands-img">
-                                <img src="https://res.cloudinary.com/djc1o48j7/image/upload/v1621635160/fashion%20images/pic3_zcio2u.png" />
+                                <img src="https://res.cloudinary.com/djc1o48j7/image/upload/v1621635160/fashion%20images/pic3_zcio2u.png" alt="Error loading" />
                         </div>
                             <div className="brands-img">
-                                 <img src="https://res.cloudinary.com/djc1o48j7/image/upload/v1621635158/fashion%20images/pic1_mj8ldy.png" />
+                                 <img src="https://res.cloudinary.com/djc1o48j7/image/upload/v1621635158/fashion%20images/pic1_mj8ldy.png" alt="Error loading" />
                         </div>
                     </div>
                 </div>

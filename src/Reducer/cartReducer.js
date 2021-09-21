@@ -1,4 +1,3 @@
-import React from "react"
 
 function cartHandler(state,action){
     switch(action.type){

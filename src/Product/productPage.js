@@ -14,7 +14,7 @@ import Loader from "react-loader-spinner"
 const Product = () => {
   const { dispatch, product } = useProduct()
   const { cartdispatch } = useCart()
-  const { wishlistdispatch , itemInwishlist} = useWishlist()
+  const { wishlistdispatch } = useWishlist()
   const [{ sortBy, stockBy, deliveryBy }, sortDispatch] = useReducer(filterReducer, { sortBy: null, stockBy: true, deliveryBy: false })
   const [loader,showLoader] = useState(false)
 
@@ -35,7 +35,7 @@ const Product = () => {
 
     }
     )();
-  }, []);
+  }, [dispatch]);
 
   // function isInWishList(id){
   //   return itemInwishlist.some(product=>product._id===id)
@@ -45,13 +45,15 @@ const Product = () => {
   function showproducts(item) {
     return (
       <div className="col-4">
-        <img src={item.url} />
+        <div className="image-container">
+        <img src={item.url} alt="Error loading " className="product-img" />
+        </div>
         <div className="header-z">
           <h4>{item.name}</h4>
           <p>₹ {item.price}</p>
-          <a href="#" onClick={() => addTocart(item)} className="btn addcart"><i className="fas fa-shopping-cart "></i></a>
+          <a href="/" onClick={() => addTocart(item)} className="btn addcart"><i className="fas fa-shopping-cart "></i></a>
           {/* <span style={{background:isInWishList(item._id)?"red":"black"}}> */}
-              <a href="#" onClick={() => addTowishlist(item)} className="btn wishlist"><i class="fas fa-heart"></i></a>
+              <a href="/" onClick={() => addTowishlist(item)} className="btn wishlist"><i class="fas fa-heart"></i></a>
           {/* </span> */}
         </div>
       </div>
@@ -76,7 +78,7 @@ const Product = () => {
           return response.data;
         });
       if (success) {
-        cartdispatch({ type: "ADD_TO_CART", payload: item });
+        cartdispatch({ type: "ADD_TO_CART", payload: data });
       } else {
         console.log("error");
       }
@@ -101,7 +103,7 @@ const Product = () => {
           return response.data;
         });
       if (success) {
-        wishlistdispatch({ type: "ADD_TO_WISHLIST", payload: item });
+        wishlistdispatch({ type: "ADD_TO_WISHLIST", payload: data });
       } else {
         console.log("error"); 
       }
