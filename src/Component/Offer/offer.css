@@ -1,0 +1,28 @@
+.offer {
+    /* background: radial-gradient(#fff,#ffd6d6); */
+    background-color: #E2E8F0;
+
+}
+.offer-containerr{
+    max-width:900px;
+    margin: auto;
+    padding-top: 1rem;
+}
+.offer-row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+ .offer-col{
+    flex-basis: 40%;
+}
+.offer-img{
+  width: 100%;
+}
+small {
+    color:#555;
+}  
+.btn{
+    color:#000;
+    text-decoration: none;
+}
