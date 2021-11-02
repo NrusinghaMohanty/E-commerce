@@ -66,7 +66,7 @@ const Product = () => {
       const { success, savecartProduct: data } = await axios
         .post("https://e-commerce.nrusingha.repl.co/cart", {
           _id: item._id,
-          info: item.info,
+          // info: item.info,
           name: item.name,
           price: item.price,
           quantity: 1,
@@ -79,6 +79,7 @@ const Product = () => {
         });
       if (success) {
         cartdispatch({ type: "ADD_TO_CART", payload: data });
+        console.log("success")
       } else {
         console.log("error");
       }
