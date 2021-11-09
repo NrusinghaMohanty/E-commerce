@@ -16,7 +16,7 @@ const Wishlist = () => {
         try{
          showLoader(true) 
         const { wishlistProduct: wishlistdata } = await axios
-          .get("https://e-commerce.nrusingha.repl.co/wishlist")
+          .get("https://shoppingo-backend.herokuapp.com/wishlist")
           .then((response) => {
             console.log(response.data)  
             return response.data;
@@ -32,7 +32,7 @@ const Wishlist = () => {
       const removeFromwishlist = (id) => {
         (async () => {
           const {  success , wishlistProduct: data } = await axios
-            .delete(`https://e-commerce.nrusingha.repl.co/wishlist/${id}`)
+            .delete(`https://shoppingo-backend.herokuapp.com/wishlist/${id}`)
             .then((response) => {
               return response.data;
             });
