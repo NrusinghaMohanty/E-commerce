@@ -17,7 +17,7 @@ const Cart = () => {
           try{
             showLoader(true)
           const { cartProduct: cartdata } = await axios
-            .get("https://e-commerce.nrusingha.repl.co/cart")
+            .get("https://shoppingo-backend.herokuapp.com/cart")
             .then((response) => {
               console.log(response.data)  
               return response.data;
@@ -33,8 +33,8 @@ const Cart = () => {
 
       const incrementQt = (item) => {
         (async () => {
-          const { success, savecartProduct: data } = await axios
-            .post(`https://e-commerce.nrusingha.repl.co/cart/${item._id}`, {
+          const { success, cartProduct: data } = await axios
+            .post(`https://shoppingo-backend.herokuapp.com/cart/${item._id}`, {
               quantity: item.quantity + 1
             })
             .then((response) => {
@@ -51,13 +51,13 @@ const Cart = () => {
       const decrementQt = (item) => {
         (async () => {
           const { cartProduct: cartitem } = await axios
-            .get(`https://e-commerce.nrusingha.repl.co/cart/${item._id}`)
+            .get(`https://shoppingo-backend.herokuapp.com/cart/${item._id}`)
             .then((response) => {
               return response.data;
             });
           if (cartitem.quantity > 1) {
-            const { success, savecartProduct: data } = await axios
-              .post(`https://e-commerce.nrusingha.repl.co/cart/${item._id}`, {
+            const { success, cartProduct: data } = await axios
+              .post(`https://shoppingo-backend.herokuapp.com/cart/${item._id}`, {
                 quantity: item.quantity - 1
               })
               .then((response) => {
@@ -71,7 +71,7 @@ const Cart = () => {
           }else{
             (async () => {
               const {  success , cartProduct: data } = await axios
-                .delete(`https://e-commerce.nrusingha.repl.co/cart/${item._id}`)
+                .delete(`https://shoppingo-backend.herokuapp.com/cart/${item._id}`)
                 .then((response) => {
                   return response.data;
                 });
@@ -88,7 +88,7 @@ const Cart = () => {
       const removeFromcart = (id) => {
         (async () => {
           const {  success , cartProduct: data } = await axios
-            .delete(`https://e-commerce.nrusingha.repl.co/cart/${id}`)
+            .delete(`https://shoppingo-backend.herokuapp.com/cart/${id}`)
             .then((response) => {
               return response.data;
             });

@@ -14,7 +14,7 @@ const Offer = () => {
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                                 <h1>Sale is on</h1>
                                 <small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat blanditiis minus,cupiditate quae eos tempora.</small>
-                                <a href="/" className="btn">Buy now </a>
+                                <a href="/product" className="btn">Buy now </a>
                         </div>
                         </div>
 

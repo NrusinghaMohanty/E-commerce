@@ -23,7 +23,7 @@ const Product = () => {
       try{
        showLoader(true) 
       const { product: productdata } = await axios
-        .get("https://e-commerce.nrusingha.repl.co/product")
+        .get("https://shoppingo-backend.herokuapp.com/product")
         .then((response) => {
           return response.data;
         });
@@ -64,7 +64,7 @@ const Product = () => {
   const addTocart = (item) => {
     (async () => {
       const { success, savecartProduct: data } = await axios
-        .post("https://e-commerce.nrusingha.repl.co/cart", {
+        .post("https://shoppingo-backend.herokuapp.com/cart", {
           _id: item._id,
           // info: item.info,
           name: item.name,
@@ -90,7 +90,7 @@ const Product = () => {
        
       (async () => {
       const { success, savewishlistProduct: data } = await axios
-        .post("https://e-commerce.nrusingha.repl.co/wishlist", {
+        .post("https://shoppingo-backend.herokuapp.com/wishlist", {
           _id: item._id,
           info: item.info,
           name: item.name,
@@ -132,12 +132,12 @@ const Product = () => {
           <h2>All Product</h2>
           <div>
             <select onChange={(e) => sortDispatch({ type: e.target.value })}>
-              <option value="DEFAULT_FILTER">Default Shorting</option>
+              <option value="DEFAULT_FILTER">Default Sorting</option>
               <option value="IN_STOCK">In stock</option>
               <option value="FAST_DELIVERY">fast delivery</option>
             </select>
             <select onChange={(e) => sortDispatch({ type: "SORT", payload: e.target.value })}>
-              <option>Default Shorting</option>
+              <option>Default Sorting</option>
               <option value="HIGH_TO_LOW" >High to Low</option>
               <option value="LOW_TO_HIGH">Low to High</option>
             </select>
