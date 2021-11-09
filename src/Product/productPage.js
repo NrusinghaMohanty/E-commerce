@@ -51,9 +51,9 @@ const Product = () => {
         <div className="header-z">
           <h4>{item.name}</h4>
           <p>₹ {item.price}</p>
-          <a href="/" onClick={() => addTocart(item)} className="btn addcart"><i className="fas fa-shopping-cart "></i></a>
+          <button href="/" onClick={() => addTocart(item)} className="btn addcart"><i className="fas fa-shopping-cart "></i></button>
           {/* <span style={{background:isInWishList(item._id)?"red":"black"}}> */}
-              <a href="/" onClick={() => addTowishlist(item)} className="btn wishlist"><i class="fas fa-heart"></i></a>
+              <button href="/" onClick={() => addTowishlist(item)} className="btn wishlist"><i class="fas fa-heart"></i></button>
           {/* </span> */}
         </div>
       </div>
