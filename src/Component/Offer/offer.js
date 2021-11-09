@@ -1,5 +1,6 @@
 import React from 'react'
 import "./offer.css"
+import Link from "react-router-dom"
 
 const Offer = () => {
     return (
@@ -14,7 +15,7 @@ const Offer = () => {
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                                 <h1>Sale is on</h1>
                                 <small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat blanditiis minus,cupiditate quae eos tempora.</small>
-                                <a href="/product" className="btn">Buy now </a>
+                                <Link to="/product" className="btn">Buy now </Link>
                         </div>
                         </div>
 
