@@ -41,13 +41,11 @@ const Navbar = () => {
                         </NavLink>
                         {/* <span className="icon-badge">{itemInwishlist.length}</span> */}
                     </span>
-                    <span className="nav-icon">
+                    {/* <span className="nav-icon">
                         <NavLink to="/footer" className="nav-link" end activeStyle={{color:"#333",fontWeight:"bold"}}>
                             Contact us
-                            {/* <i class="fas fa-shopping-bag"></i> */}
                         </NavLink>
-                        {/* <span className="icon-badge">{itemInwishlist.length}</span> */}
-                    </span>
+                    </span> */}
                 </div>
                 <div class="login">
                   <i class="fas fa-user-plus"></i>

@@ -51,9 +51,9 @@ const Product = () => {
         <div className="header-z">
           <h4>{item.name}</h4>
           <p>₹ {item.price}</p>
-          <a href="/" onClick={() => addTocart(item)} className="btn addcart"><i className="fas fa-shopping-cart "></i></a>
+          <button href="/" onClick={() => addTocart(item)} className="btn addcart"><i className="fas fa-shopping-cart "></i></button>
           {/* <span style={{background:isInWishList(item._id)?"red":"black"}}> */}
-              <a href="/" onClick={() => addTowishlist(item)} className="btn wishlist"><i class="fas fa-heart"></i></a>
+              <button href="/" onClick={() => addTowishlist(item)} className="btn wishlist"><i class="fas fa-heart"></i></button>
           {/* </span> */}
         </div>
       </div>
@@ -66,7 +66,7 @@ const Product = () => {
       const { success, savecartProduct: data } = await axios
         .post("https://e-commerce.nrusingha.repl.co/cart", {
           _id: item._id,
-          info: item.info,
+          // info: item.info,
           name: item.name,
           price: item.price,
           quantity: 1,
@@ -79,6 +79,7 @@ const Product = () => {
         });
       if (success) {
         cartdispatch({ type: "ADD_TO_CART", payload: data });
+        console.log("success")
       } else {
         console.log("error");
       }

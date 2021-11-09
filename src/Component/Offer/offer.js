@@ -12,7 +12,7 @@ const Offer = () => {
                         </div>
                         <div className="offer-col">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                                <h1>Super bike 4</h1>
+                                <h1>Sale is on</h1>
                                 <small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat blanditiis minus,cupiditate quae eos tempora.</small>
                                 <a href="/" className="btn">Buy now </a>
                         </div>
