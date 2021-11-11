@@ -23,7 +23,7 @@
 }
 .menu {
   flex-basis: 60%;
-  text-align: center;
+  text-align: end;
   padding-left: 4rem;
   font-size: 1.2rem;
   font-family: 'Dancing Script', cursive;

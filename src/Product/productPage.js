@@ -9,7 +9,8 @@ import filterReducer from '../Reducer/filterReducer'
 import sortingHandler from "../Function/sortingHandler"
 import filterHandler from "../Function/filterHandler"
 import Loader from "react-loader-spinner"
-import Navbar from "../Component/Navbar/navbar"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Product = () => {
   const { dispatch, product } = useProduct()
@@ -57,7 +58,6 @@ const Product = () => {
           <p>₹ {item.price}</p>
           <button onClick={() => addTocart(item)} className="btn addcart" style={{background:isIncart(item._id)?"#DD2476":"#ddd"}}><i className="fas fa-shopping-cart "></i></button>
           <button onClick={() => addTowishlist(item)} className="btn wishlist" style={{background:isInWishList(item._id)?"#DD2476":"#ddd"}}><i class="fas fa-heart"></i></button>
-          {/* </span> */}
         </div>
       </div>
     );
@@ -82,6 +82,7 @@ const Product = () => {
         });
       if (success) {
         cartdispatch({ type: "ADD_TO_CART", payload: data });
+        toast("Your product is added to Cart")
         console.log("success")
       } else {
         console.log("error");
@@ -108,6 +109,7 @@ const Product = () => {
         });
       if (success) {
         wishlistdispatch({ type: "ADD_TO_WISHLIST", payload: data });
+        toast("Your product is added to Wishlist")
       } else {
         console.log("error");
       }
@@ -127,7 +129,7 @@ const Product = () => {
     </>
   ) : (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="allproduct-container">
         <div className="allproduct-heading row-2">
           <h2>All Product</h2>
@@ -148,6 +150,16 @@ const Product = () => {
           {filterData.map(showproducts)}
         </div>
       </div>
+      <ToastContainer 
+                position="top-center"
+                autoClose={3000}
+                hideProgressBar={true}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover />
     </>
   )
 }
