@@ -73,3 +73,10 @@ td .btn:hover{
     background: #93C5FD;
     cursor: pointer;
 }
+.empty-product{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}

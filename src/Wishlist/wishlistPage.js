@@ -3,7 +3,6 @@ import axios from "axios"
 import { useEffect,useState } from "react"
 import { useWishlist } from "../Context/wishlistContext"
 import "./wishlistpage.css"
-import Navbar from "../Component/Navbar/navbar"
 import Loader from "react-loader-spinner"
 
 const Wishlist = () => {
@@ -55,7 +54,7 @@ const Wishlist = () => {
                  </div>
                  <div className="wishlist-text">
                  <p>{item.name}</p>
-                 <small>Price : ${item.price}</small>
+                 <small>Price : ₹{item.price}</small>
                  <button onClick={()=>removeFromwishlist(item._id)}>Remove</button>
                  </div>
              </div>
@@ -64,23 +63,33 @@ const Wishlist = () => {
             </>
         )
       }
+     if(itemInwishlist.length !== 0){ 
 
     return loader ?(
       <>
-      <Navbar />
-
       <div className="loader">
         <Loader type="ThreeDots" color="grey" height={80} width={80} />
       </div>
       </>
     ):(
         <>
-          <Navbar />
           <div className="wishlist-container">
            {itemInwishlist.map(showWishlist)}
            </div>
         </>
     )
+     }else{
+      return (
+        <div className="empty-product">
+        <div>
+        <h1>Add some product</h1>
+        </div>
+        <div>
+          <span>There is no product</span>
+        </div>
+        </div>
+      )
+     }
 }
 
 export default Wishlist

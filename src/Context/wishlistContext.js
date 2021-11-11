@@ -4,6 +4,9 @@ import wishlistHandler from "../Reducer/wishlistReducer"
 export const wishlistContext = createContext()
 
 
+export function useWishlist () {
+    return useContext(wishlistContext)
+}
 export function WishlistProvider({children}){
     const [ state,wishlistdispatch ] = useReducer(wishlistHandler,{itemInwishlist:[]})
     
@@ -12,8 +15,4 @@ export function WishlistProvider({children}){
             {children}
         </wishlistContext.Provider>
     )
-}
-
-export function useWishlist () {
-    return useContext(wishlistContext)
 }
