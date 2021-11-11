@@ -47,10 +47,10 @@ const Navbar = () => {
                         </NavLink>
                     </span> */}
                 </div>
-                <div class="login">
+                {/* <div class="login">
                   <i class="fas fa-user-plus"></i>
                   <i class="fas fa-sign-out-alt"></i>
-                </div>
+                </div> */}
             </div>
         </>
     );
