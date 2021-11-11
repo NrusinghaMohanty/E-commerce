@@ -5,10 +5,12 @@ import Product from "../Product/productPage"
 import Cart from "../Cart/cartPage" 
 import Wishlist from "../Wishlist/wishlistPage"
 import Footer from "../Component/Footer/footer";
+import Navbar from "../Component/Navbar/navbar";
 
 const Router = () => {
     return (
     <div>
+        <Navbar />
         <Routes>
             <Route path="/" element={<Home />}  />
             <Route path="/product" element={<Product />} />

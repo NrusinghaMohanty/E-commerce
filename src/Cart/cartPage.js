@@ -3,7 +3,6 @@ import axios from "axios"
 import { useEffect ,useState} from "react"
 import { useCart } from "../Context/cartContext"
 import "./cartPage.css"
-import Navbar from '../Component/Navbar/navbar'
 import Loader from "react-loader-spinner"
 
 const Cart = () => {
@@ -102,7 +101,7 @@ const Cart = () => {
 
       function showcart(item) {
         return (
-        <>      <Navbar />
+        <>   
                 <tr>
                   <td>
                     <div class="cart-info">
@@ -116,7 +115,7 @@ const Cart = () => {
                     </div>
                 </td>
                 <td><button onClick={()=>incrementQt(item)} class="btn">+</button><span>{item.quantity}</span><button onClick={()=>decrementQt(item)} class="btn">-</button></td>
-                <td>${item.price}</td> 
+                <td>₹{item.price}</td> 
                 </tr>   
         </>
         );
@@ -127,11 +126,11 @@ const Cart = () => {
        }
      
        let totalPrice = itemIncart.reduce(totalCalculation,0) ;
+       
+     if(itemIncart.length !== 0){  
 
     return loader ?(
       <>
-      <Navbar />
-  
       <div className="loader">
         <Loader type="ThreeDots" color="grey"  height={80} width={80} />
       </div>
@@ -157,13 +156,25 @@ const Cart = () => {
             <table>
                 <tr>
                     <td>subtotal</td>
-                    <td>${totalPrice}</td>
+                    <td>₹{totalPrice}</td>
                 </tr>
             </table>
         </div>    
         </div>        
         </>
     )
+    }else{
+      return (
+        <div className="empty-product">
+        <div>
+        <h1>Add some product</h1>
+        </div>
+        <div>
+          <span>There is no product</span>
+        </div>
+        </div>
+      )
+    }
 }
 
 export default Cart

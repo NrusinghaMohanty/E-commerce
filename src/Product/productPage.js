@@ -1,59 +1,62 @@
 import React from 'react'
 import axios from "axios"
-import { useEffect, useReducer , useState } from "react"
+import { useEffect, useReducer, useState } from "react"
 import "./productPage.css"
 import { useProduct } from '../Context/productContext'
 import { useCart } from "../Context/cartContext"
 import { useWishlist } from '../Context/wishlistContext'
-import Navbar from '../Component/Navbar/navbar'
 import filterReducer from '../Reducer/filterReducer'
 import sortingHandler from "../Function/sortingHandler"
 import filterHandler from "../Function/filterHandler"
 import Loader from "react-loader-spinner"
+import Navbar from "../Component/Navbar/navbar"
 
 const Product = () => {
   const { dispatch, product } = useProduct()
-  const { cartdispatch } = useCart()
-  const { wishlistdispatch } = useWishlist()
+  const { cartdispatch,itemIncart } = useCart()
+  const { wishlistdispatch,itemInwishlist } = useWishlist()
   const [{ sortBy, stockBy, deliveryBy }, sortDispatch] = useReducer(filterReducer, { sortBy: null, stockBy: true, deliveryBy: false })
-  const [loader,showLoader] = useState(false)
+  const [loader, showLoader] = useState(false)
 
   useEffect(() => {
     (async () => {
-      try{
-       showLoader(true) 
-      const { product: productdata } = await axios
-        .get("https://shoppingo-backend.herokuapp.com/product")
-        .then((response) => {
-          return response.data;
-        });
+      try {
+        showLoader(true)
+        const { product: productdata } = await axios
+          .get("https://shoppingo-backend.herokuapp.com/product")
+          .then((response) => {
+            return response.data;
+          });
         dispatch({ type: "fetch", payload: productdata })
         showLoader(false);
-    }catch{
-      console.error("error")
-    }
+      } catch {
+        console.error("error")
+      }
 
     }
     )();
   }, [dispatch]);
 
-  // function isInWishList(id){
-  //   return itemInwishlist.some(product=>product._id===id)
-  //   console.log(itemInwishlist)
-  // }
+  function isInWishList(id){
+    return itemInwishlist.some(product=>product._id===id)
+    // console.log(itemInwishlist)
+  }
+  function isIncart(id){
+    return itemIncart.some(product=>product._id===id)
+    // console.log(itemInwishlist)
+  }
 
   function showproducts(item) {
     return (
       <div className="col-4">
         <div className="image-container">
-        <img src={item.url} alt="Error loading " className="product-img" />
+          <img src={item.url} alt="Error loading " className="product-img" />
         </div>
         <div className="header-z">
           <h4>{item.name}</h4>
           <p>₹ {item.price}</p>
-          <button onClick={() => addTocart(item)} className="btn addcart"><i className="fas fa-shopping-cart "></i></button>
-          {/* <span style={{background:isInWishList(item._id)?"red":"black"}}> */}
-              <button onClick={() => addTowishlist(item)} className="btn wishlist"><i class="fas fa-heart"></i></button>
+          <button onClick={() => addTocart(item)} className="btn addcart" style={{background:isIncart(item._id)?"#DD2476":"#ddd"}}><i className="fas fa-shopping-cart "></i></button>
+          <button onClick={() => addTowishlist(item)} className="btn wishlist" style={{background:isInWishList(item._id)?"#DD2476":"#ddd"}}><i class="fas fa-heart"></i></button>
           {/* </span> */}
         </div>
       </div>
@@ -87,8 +90,8 @@ const Product = () => {
   };
 
   const addTowishlist = (item) => {
-       
-      (async () => {
+
+    (async () => {
       const { success, savewishlistProduct: data } = await axios
         .post("https://shoppingo-backend.herokuapp.com/wishlist", {
           _id: item._id,
@@ -106,7 +109,7 @@ const Product = () => {
       if (success) {
         wishlistdispatch({ type: "ADD_TO_WISHLIST", payload: data });
       } else {
-        console.log("error"); 
+        console.log("error");
       }
     })();
   };
@@ -116,15 +119,13 @@ const Product = () => {
   const filterData = filterHandler(sortedData, stockBy, deliveryBy)
 
 
-  return loader ?(
+  return loader ? (
     <>
-    <Navbar />
-
-    <div className="loader">
-      <Loader type="ThreeDots" color="grey" height={80} width={80} />
-    </div>
+      <div className="loader">
+        <Loader type="ThreeDots" color="grey" height={80} width={80} />
+      </div>
     </>
-  ):(
+  ) : (
     <>
       <Navbar />
       <div className="allproduct-container">
